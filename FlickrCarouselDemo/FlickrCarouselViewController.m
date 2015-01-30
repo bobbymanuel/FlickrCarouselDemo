@@ -40,7 +40,7 @@
     [self addChildViewController:self.pageViewController];
     [self.view addSubview:self.pageViewController.view];
 
-    CGRect pageViewRect = self.view.frame;
+    CGRect pageViewRect = self.view.bounds;
     self.pageViewController.view.frame = pageViewRect;
 
     [self.pageViewController didMoveToParentViewController:self];
@@ -48,8 +48,11 @@
 
 - (void)reloadPageController {
     CarouselImageViewController *startingViewController = [self.modelController viewControllerAtIndex:0 storyboard:self.storyboard];
-    NSArray *viewControllers = @[startingViewController];
-    [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    NSArray *viewControllers;
+    if (startingViewController) {
+        viewControllers = @[startingViewController];
+        [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,7 +65,7 @@
     if (!_modelController) {
         _modelController = [[FlickrCarouselModel alloc] init];
         [_modelController addObserver:self
-                           forKeyPath:@"photos.count"
+                           forKeyPath:@"photos"
                               options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld
                               context:nil];
     }

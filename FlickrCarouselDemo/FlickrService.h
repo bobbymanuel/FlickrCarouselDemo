@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class AFImageResponseSerializer;
+#import "AFNetworking.h"
 
 typedef NS_ENUM(NSUInteger, ImageSizeType) {
     ImageSizeThumb,
@@ -17,13 +16,11 @@ typedef NS_ENUM(NSUInteger, ImageSizeType) {
     ImageSizeLarge
 };
 
-@class AFJSONResponseSerializer;
-@class AFHTTPRequestOperationManager;
 @class FlickrCarouselModel;
 
 static NSString *const FLICKR_API_KEY = @"7b783c55dc1fcab943366a287b75cb1c";
 
-static NSString *const FLICKER_GETRECENT_URI = @"https://api.flickr.com/services/rest/?method=flicker.photos.getRecent";
+static NSString *const FLICKER_API_URI = @"https://api.flickr.com/services/rest/";
 
 static const int MAX_PREVIEW_PREFETCH = 5;
 

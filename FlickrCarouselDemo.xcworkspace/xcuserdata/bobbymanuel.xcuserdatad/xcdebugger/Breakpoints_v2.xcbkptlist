@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FlickrCarouselDemo/FlickrService.h"
-            timestampString = "444312272.766128"
+            timestampString = "444314208.438743"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
             landmarkName = "-cachedImageWithPath:"
             landmarkType = "4">
          </BreakpointContent>

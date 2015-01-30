@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D7083FB1A7B6016007ECC82 /* FlickrService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7083FA1A7B6016007ECC82 /* FlickrService.m */; };
+		0D70E5761A7BE65C00EE33B5 /* loadingImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D70E5751A7BE65B00EE33B5 /* loadingImage.png */; };
 		0D77A2781A7B498600A084BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D77A2771A7B498600A084BD /* main.m */; };
 		0D77A27B1A7B498600A084BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D77A27A1A7B498600A084BD /* AppDelegate.m */; };
 		0D77A27E1A7B498600A084BD /* FlickrCarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D77A27D1A7B498600A084BD /* FlickrCarouselViewController.m */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		0D7083F91A7B6016007ECC82 /* FlickrService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrService.h; sourceTree = "<group>"; };
 		0D7083FA1A7B6016007ECC82 /* FlickrService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrService.m; sourceTree = "<group>"; };
+		0D70E5751A7BE65B00EE33B5 /* loadingImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loadingImage.png; sourceTree = "<group>"; };
 		0D77A2721A7B498600A084BD /* FlickrCarouselDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrCarouselDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D77A2761A7B498600A084BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D77A2771A7B498600A084BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 		0D77A2741A7B498600A084BD /* FlickrCarouselDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0D70E5751A7BE65B00EE33B5 /* loadingImage.png */,
 				0D77A2791A7B498600A084BD /* AppDelegate.h */,
 				0D77A27A1A7B498600A084BD /* AppDelegate.m */,
 				0D77A27C1A7B498600A084BD /* FlickrCarouselViewController.h */,
@@ -177,6 +180,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D70E5761A7BE65C00EE33B5 /* loadingImage.png in Resources */,
 				0D77A2871A7B498600A084BD /* Main.storyboard in Resources */,
 				0D77A28C1A7B498600A084BD /* LaunchScreen.xib in Resources */,
 				0D77A2891A7B498600A084BD /* Images.xcassets in Resources */,

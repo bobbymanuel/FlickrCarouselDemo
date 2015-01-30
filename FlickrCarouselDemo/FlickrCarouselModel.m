@@ -44,6 +44,7 @@
 
     // Create a new view controller and pass suitable data.
     CarouselImageViewController *photoViewController = [storyboard instantiateViewControllerWithIdentifier:@"CarouselImageViewController"];
+    [photoViewController view];
     photoViewController.photoMeta = self.photos[index];
     return photoViewController;
 }

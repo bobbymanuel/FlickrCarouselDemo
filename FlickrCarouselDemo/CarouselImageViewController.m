@@ -37,6 +37,7 @@
     FlickrService *service = [FlickrService sharedService];
     NSString *resourcePath = [service resourcePathForPhotoId:self.photoId size:ImageSizeMedium];
     UIImage *image = [service cachedImageWithPath:resourcePath];
+
     if (image == nil) {
         NSString *previewPath = [service resourcePathForPhotoId:self.photoId size:ImageSizeThumb];
         UIImage *preview = [service cachedImageWithPath:previewPath];
