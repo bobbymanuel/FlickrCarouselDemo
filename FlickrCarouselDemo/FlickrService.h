@@ -30,7 +30,7 @@ static const int MAX_PREVIEW_PREFETCH = 5;
 
 + (instancetype)sharedService;
 
-- (void)refreshCarousel:(FlickrCarouselModel *)model;
+- (void)loadCarousel:(FlickrCarouselModel *)model;
 
 - (NSString *)resourcePathForPhotoId:(NSString *)photoId size:(ImageSizeType)size;
 

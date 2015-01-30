@@ -7,7 +7,6 @@
 //
 
 #import "FlickrService.h"
-#import "AFNetworking.h"
 #import "FlickrCarouselModel.h"
 #import "UIImageView+AFNetworking.h"
 
@@ -20,6 +19,8 @@
 - (NSString *)sizeDescriptorForImageSize:(ImageSizeType)size;
 
 - (BOOL)isSuccessfulResponse:(id)response;
+
+- (id)deserializeFlickrResponse:(id)response;
 
 - (void)updateModel:(FlickrCarouselModel *)carouselModel withResponse:(id)response fromURI:(NSString *const)URI;
 
@@ -64,23 +65,14 @@
     }
 }
 
-- (NSString *)resourcePathForPhotoId:(NSString *)photoId size:(ImageSizeType)size {
-    NSString *sizeKey = [self sizeDescriptorForImageSize:size];
-    NSDictionary *imageMeta = self.imageMetaCache[photoId];
-    if (imageMeta != nil) {
-        return [NSString stringWithFormat:@"http://farm%@.staticflickr.com/%@/%@_%@_%@.jpg", imageMeta[@"farm"],imageMeta[@"server"], imageMeta[@"id"], imageMeta[@"secret"], sizeKey];
-    }
-    return nil;
-}
-
-- (void)refreshCarousel:(FlickrCarouselModel *)model {
+- (void)loadCarousel:(FlickrCarouselModel *)model {
 
     NSDictionary *params = @{
             @"extras" : @[@"url_b", @"url_t", @"url_m", @"url_z"],
             @"api_key" : FLICKR_API_KEY,
             @"page" : @"1",
             @"format" : @"json",
-            @"method": @"flickr.photos.getrecent"
+            @"method" : @"flickr.photos.getrecent"
 
     };
 
@@ -88,19 +80,11 @@
     AFHTTPRequestOperation *request = [self.requestManager GET:FLICKER_API_URI
                                                     parameters:params
                                                        success:^(id operation, id response) {
-
-                                                           NSString *responseString = [[NSString alloc] initWithBytes:[response bytes] length:[response length] encoding:NSUTF8StringEncoding];
-                                                           NSRange lead = [responseString rangeOfString:@"jsonFlickrApi("];
-                                                           if (lead.location != NSNotFound) {
-                                                               responseString = [responseString substringFromIndex:(lead.location + lead.length)];
-                                                               NSRange tail = [responseString rangeOfString:@")" options:NSBackwardsSearch];
-                                                               responseString = [responseString substringToIndex:tail.location];
-                                                               id data = [NSJSONSerialization JSONObjectWithData:[responseString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
-
-                                                               [weakSelf updateModel:model
-                                                                        withResponse:data
-                                                                             fromURI:FLICKER_API_URI];
-                                                           }
+                                                           // TODO: deserialize should be moved into a formal responseSerializer class
+                                                           id data = [self deserializeFlickrResponse:response];
+                                                           [weakSelf updateModel:model
+                                                                    withResponse:data
+                                                                         fromURI:FLICKER_API_URI];
 
                                                        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 // TODO:Error handling To be implemented
@@ -110,43 +94,36 @@
     [request start];
 }
 
-
-- (void)updateModel:(FlickrCarouselModel *)carouselModel withResponse:(id)response fromURI:(NSString *const)URI {
-    if ([self isSuccessfulResponse:response]) {
-        NSDictionary *validResponse = response;
-        NSArray *photos = validResponse[@"photos"][@"photo"];
-        NSMutableArray *validPhotos = [NSMutableArray arrayWithCapacity:photos.count];
-        int prefetchCount = 0;
-        NSDictionary *validMeta;
-        NSString *imageId;
-        for (NSDictionary *photoMeta in photos) {
-            validMeta = [self cachePhotoMeta:photoMeta];
-            [validPhotos addObject:validMeta];
-            imageId = validMeta[@"photoId"];
-            if (prefetchCount < MAX_PREVIEW_PREFETCH) {
-                [self prefetchPreviewWithId:imageId];
-            }
-            if (!prefetchCount) {
-                [self prefetchImageWithId:imageId];
-            }
-            prefetchCount++;
-        }
-        carouselModel.photos = validPhotos;
-    } else {
-        // TODO: Error handling to be implemented
+- (NSString *)resourcePathForPhotoId:(NSString *)photoId size:(ImageSizeType)size {
+    NSString *sizeKey = [self sizeDescriptorForImageSize:size];
+    NSDictionary *imageMeta = self.imageMetaCache[photoId];
+    if (imageMeta != nil) {
+        return [NSString stringWithFormat:@"http://farm%@.staticflickr.com/%@/%@_%@_%@.jpg", imageMeta[@"farm"], imageMeta[@"server"], imageMeta[@"id"], imageMeta[@"secret"], sizeKey];
     }
+    return nil;
 }
 
-- (NSDictionary *)cachePhotoMeta:(NSDictionary *)photoMeta {
-    NSMutableDictionary *meta = [photoMeta mutableCopy];
-    NSString *photoId = [self photoIdFromMeta:meta];
-    meta[@"photoId"] = photoId;
-    self.imageMetaCache[photoId] = meta;
-    return meta;
-}
 
-- (NSString *)photoIdFromMeta:(NSDictionary *)photoMeta {
-    return [NSString stringWithFormat:@"%@_%@", photoMeta[@"id"], photoMeta[@"secret"]];
+# pragma mark - response parsing
+
+- (id)deserializeFlickrResponse:(id)response {
+    NSString *responseString = [[NSString alloc] initWithBytes:[response bytes] length:[response length] encoding:NSUTF8StringEncoding];
+    NSRange lead = [responseString rangeOfString:@"jsonFlickrApi("];
+
+    id data = nil;
+    if (lead.location != NSNotFound) {
+
+        responseString = [responseString substringFromIndex:(lead.location + lead.length)];
+        NSRange tail = [responseString rangeOfString:@")" options:NSBackwardsSearch];
+        responseString = [responseString substringToIndex:tail.location];
+
+        // TODO: handle serialization errors
+        data = [NSJSONSerialization JSONObjectWithData:[responseString dataUsingEncoding:NSUTF8StringEncoding]
+                                               options:0
+                                                 error:nil];
+    }
+
+    return data;
 }
 
 - (BOOL)isSuccessfulResponse:(id)response {
@@ -163,7 +140,52 @@
     return validResponse;
 }
 
-#pragma mark - image caching
+#pragma mark - model operations
+
+- (void)updateModel:(FlickrCarouselModel *)carouselModel withResponse:(id)response fromURI:(NSString *const)URI {
+    if ([self isSuccessfulResponse:response]) {
+
+        NSDictionary *validResponse = response;
+        NSArray *photos = validResponse[@"photos"][@"photo"];
+        NSMutableArray *validPhotos = [NSMutableArray arrayWithCapacity:photos.count];
+        NSDictionary *validMeta;
+        NSString *imageId;
+
+        for (NSDictionary *photoMeta in photos) {
+            validMeta = [self indexPhotoMeta:photoMeta];
+            [validPhotos addObject:validMeta];
+            imageId = validMeta[@"photoId"];
+
+            // prefetch image previews
+            if (validPhotos.count < MAX_PREVIEW_PREFETCH) {
+                [self prefetchPreviewWithId:imageId];
+            }
+
+            // prefetch the first full image
+            if (!validPhotos.count) {
+                [self prefetchImageWithId:imageId];
+            }
+        }
+
+        carouselModel.photos = validPhotos;
+    } else {
+        // TODO: Error handling to be implemented
+    }
+}
+
+# pragma mark - indexing and caching operations
+
+- (NSDictionary *)indexPhotoMeta:(NSDictionary *)photoMeta {
+    NSMutableDictionary *meta = [photoMeta mutableCopy];
+    NSString *photoId = [self photoIdFromMeta:meta];
+    meta[@"photoId"] = photoId;
+    self.imageMetaCache[photoId] = meta;
+    return meta;
+}
+
+- (NSString *)photoIdFromMeta:(NSDictionary *)photoMeta {
+    return [NSString stringWithFormat:@"%@_%@", photoMeta[@"id"], photoMeta[@"secret"]];
+}
 
 - (void)prefetchImageWithId:(NSString *)imageId {
     NSString *path = [self resourcePathForPhotoId:imageId size:ImageSizeMedium];

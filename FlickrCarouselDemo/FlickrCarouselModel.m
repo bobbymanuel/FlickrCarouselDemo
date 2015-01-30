@@ -31,7 +31,7 @@
     if (self) {
         // Create the data model.
         _photos = nil;
-        [[FlickrService sharedService] refreshCarousel:self];
+        [[FlickrService sharedService] loadCarousel:self];
     }
     return self;
 }

@@ -32,20 +32,29 @@
 }
 
 - (void)setPhotoMeta:(id)photoMeta {
+
     _photoMeta = photoMeta;
     self.photoId = photoMeta[@"photoId"];
+
     FlickrService *service = [FlickrService sharedService];
     NSString *resourcePath = [service resourcePathForPhotoId:self.photoId size:ImageSizeMedium];
-    UIImage *image = [service cachedImageWithPath:resourcePath];
 
-    if (image == nil) {
+    UIImage *image = [service cachedImageWithPath:resourcePath];
+    BOOL imageNotCached = image == nil;
+
+    if (imageNotCached) {
+
         NSString *previewPath = [service resourcePathForPhotoId:self.photoId size:ImageSizeThumb];
         UIImage *preview = [service cachedImageWithPath:previewPath];
+
         if (preview == nil) {
             preview = [UIImage imageNamed:@"loadingImage.png"];
         }
+
         [self.imageView setImageWithURL:[[NSURL alloc] initWithString:resourcePath] placeholderImage:preview];
+
     } else {
+
         [self.imageView setImage:image];
     }
 
