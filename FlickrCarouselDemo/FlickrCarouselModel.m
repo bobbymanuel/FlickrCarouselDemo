@@ -1,13 +1,14 @@
 //
-//  ModelController.m
+//  FlickrCarouselModel.m
 //  FlickrCarouselDemo
 //
 //  Created by Bobby Manuel on 1/29/15.
 //  Copyright (c) 2015 Bobby Manuel. All rights reserved.
 //
 
-#import "ModelController.h"
-#import "DataViewController.h"
+#import "FlickrCarouselModel.h"
+#import "CarouselImageViewController.h"
+#import "FlickrService.h"
 
 /*
  A controller object that manages a simple model -- a collection of month names.
@@ -19,63 +20,59 @@
  */
 
 
-@interface ModelController ()
+@interface FlickrCarouselModel ()
 
-@property (readonly, strong, nonatomic) NSArray *pageData;
 @end
 
-@implementation ModelController
+@implementation FlickrCarouselModel
 
 - (instancetype)init {
     self = [super init];
     if (self) {
         // Create the data model.
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        _pageData = [[dateFormatter monthSymbols] copy];
+        _photos = nil;
+        [[FlickrService sharedService] refreshCarousel:self];
     }
     return self;
 }
 
-- (DataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard {
+- (CarouselImageViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard {
     // Return the data view controller for the given index.
-    if (([self.pageData count] == 0) || (index >= [self.pageData count])) {
+    if (([self.photos count] == 0) || (index >= [self.photos count])) {
         return nil;
     }
 
     // Create a new view controller and pass suitable data.
-    DataViewController *dataViewController = [storyboard instantiateViewControllerWithIdentifier:@"DataViewController"];
-    dataViewController.dataObject = self.pageData[index];
-    return dataViewController;
+    CarouselImageViewController *photoViewController = [storyboard instantiateViewControllerWithIdentifier:@"CarouselImageViewController"];
+    photoViewController.photoMeta = self.photos[index];
+    return photoViewController;
 }
 
-- (NSUInteger)indexOfViewController:(DataViewController *)viewController {
+- (NSUInteger)indexOfViewController:(CarouselImageViewController *)viewController {
     // Return the index of the given data view controller.
     // For simplicity, this implementation uses a static array of model objects and the view controller stores the model object; you can therefore use the model object to identify the index.
-    return [self.pageData indexOfObject:viewController.dataObject];
+    return [self.photos indexOfObject:viewController.photoMeta];
 }
 
 #pragma mark - Page View Controller Data Source
 
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
-{
-    NSUInteger index = [self indexOfViewController:(DataViewController *)viewController];
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    NSUInteger index = [self indexOfViewController:(CarouselImageViewController *) viewController];
     if ((index == 0) || (index == NSNotFound)) {
         return nil;
     }
-    
     index--;
     return [self viewControllerAtIndex:index storyboard:viewController.storyboard];
 }
 
-- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
-{
-    NSUInteger index = [self indexOfViewController:(DataViewController *)viewController];
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    NSUInteger index = [self indexOfViewController:(CarouselImageViewController *) viewController];
     if (index == NSNotFound) {
         return nil;
     }
-    
+
     index++;
-    if (index == [self.pageData count]) {
+    if (index == [self.photos count]) {
         return nil;
     }
     return [self viewControllerAtIndex:index storyboard:viewController.storyboard];

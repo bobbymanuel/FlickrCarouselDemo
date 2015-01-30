@@ -7,45 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D7083FB1A7B6016007ECC82 /* FlickrService.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D7083FA1A7B6016007ECC82 /* FlickrService.m */; };
 		0D77A2781A7B498600A084BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D77A2771A7B498600A084BD /* main.m */; };
 		0D77A27B1A7B498600A084BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D77A27A1A7B498600A084BD /* AppDelegate.m */; };
-		0D77A27E1A7B498600A084BD /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D77A27D1A7B498600A084BD /* RootViewController.m */; };
-		0D77A2811A7B498600A084BD /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D77A2801A7B498600A084BD /* DataViewController.m */; };
-		0D77A2841A7B498600A084BD /* ModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D77A2831A7B498600A084BD /* ModelController.m */; };
+		0D77A27E1A7B498600A084BD /* FlickrCarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D77A27D1A7B498600A084BD /* FlickrCarouselViewController.m */; };
+		0D77A2811A7B498600A084BD /* CarouselImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D77A2801A7B498600A084BD /* CarouselImageViewController.m */; };
+		0D77A2841A7B498600A084BD /* FlickrCarouselModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D77A2831A7B498600A084BD /* FlickrCarouselModel.m */; };
 		0D77A2871A7B498600A084BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D77A2851A7B498600A084BD /* Main.storyboard */; };
 		0D77A2891A7B498600A084BD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D77A2881A7B498600A084BD /* Images.xcassets */; };
 		0D77A28C1A7B498600A084BD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D77A28A1A7B498600A084BD /* LaunchScreen.xib */; };
-		0D77A2981A7B498600A084BD /* FlickrCarouselDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D77A2971A7B498600A084BD /* FlickrCarouselDemoTests.m */; };
+		A85F1F9E356C1980A7DC5316 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B6F37DD4CFCC6EE46A714BA /* libPods.a */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		0D77A2921A7B498600A084BD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0D77A26A1A7B498600A084BD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0D77A2711A7B498600A084BD;
-			remoteInfo = FlickrCarouselDemo;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		0D7083F91A7B6016007ECC82 /* FlickrService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrService.h; sourceTree = "<group>"; };
+		0D7083FA1A7B6016007ECC82 /* FlickrService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrService.m; sourceTree = "<group>"; };
 		0D77A2721A7B498600A084BD /* FlickrCarouselDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrCarouselDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D77A2761A7B498600A084BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D77A2771A7B498600A084BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0D77A2791A7B498600A084BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0D77A27A1A7B498600A084BD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0D77A27C1A7B498600A084BD /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
-		0D77A27D1A7B498600A084BD /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
-		0D77A27F1A7B498600A084BD /* DataViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
-		0D77A2801A7B498600A084BD /* DataViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; };
-		0D77A2821A7B498600A084BD /* ModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelController.h; sourceTree = "<group>"; };
-		0D77A2831A7B498600A084BD /* ModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModelController.m; sourceTree = "<group>"; };
+		0D77A27C1A7B498600A084BD /* FlickrCarouselViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlickrCarouselViewController.h; sourceTree = "<group>"; };
+		0D77A27D1A7B498600A084BD /* FlickrCarouselViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlickrCarouselViewController.m; sourceTree = "<group>"; };
+		0D77A27F1A7B498600A084BD /* CarouselImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarouselImageViewController.h; sourceTree = "<group>"; };
+		0D77A2801A7B498600A084BD /* CarouselImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarouselImageViewController.m; sourceTree = "<group>"; };
+		0D77A2821A7B498600A084BD /* FlickrCarouselModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlickrCarouselModel.h; sourceTree = "<group>"; };
+		0D77A2831A7B498600A084BD /* FlickrCarouselModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlickrCarouselModel.m; sourceTree = "<group>"; };
 		0D77A2861A7B498600A084BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D77A2881A7B498600A084BD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0D77A28B1A7B498600A084BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		0D77A2911A7B498600A084BD /* FlickrCarouselDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlickrCarouselDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0D77A2961A7B498600A084BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0D77A2971A7B498600A084BD /* FlickrCarouselDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlickrCarouselDemoTests.m; sourceTree = "<group>"; };
+		6B6F37DD4CFCC6EE46A714BA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		87592E39672AE43C934737AC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8E2FDA34A554D4F679FD95E2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,13 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0D77A28E1A7B498600A084BD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				A85F1F9E356C1980A7DC5316 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,8 +57,9 @@
 			isa = PBXGroup;
 			children = (
 				0D77A2741A7B498600A084BD /* FlickrCarouselDemo */,
-				0D77A2941A7B498600A084BD /* FlickrCarouselDemoTests */,
 				0D77A2731A7B498600A084BD /* Products */,
+				9E99439C4FA2AB1CAC731E82 /* Pods */,
+				F6E90264908B9BE0034D0DD5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				0D77A2721A7B498600A084BD /* FlickrCarouselDemo.app */,
-				0D77A2911A7B498600A084BD /* FlickrCarouselDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -89,16 +76,18 @@
 			children = (
 				0D77A2791A7B498600A084BD /* AppDelegate.h */,
 				0D77A27A1A7B498600A084BD /* AppDelegate.m */,
-				0D77A27C1A7B498600A084BD /* RootViewController.h */,
-				0D77A27D1A7B498600A084BD /* RootViewController.m */,
-				0D77A27F1A7B498600A084BD /* DataViewController.h */,
-				0D77A2801A7B498600A084BD /* DataViewController.m */,
-				0D77A2821A7B498600A084BD /* ModelController.h */,
-				0D77A2831A7B498600A084BD /* ModelController.m */,
+				0D77A27C1A7B498600A084BD /* FlickrCarouselViewController.h */,
+				0D77A27D1A7B498600A084BD /* FlickrCarouselViewController.m */,
+				0D77A27F1A7B498600A084BD /* CarouselImageViewController.h */,
+				0D77A2801A7B498600A084BD /* CarouselImageViewController.m */,
+				0D77A2821A7B498600A084BD /* FlickrCarouselModel.h */,
+				0D77A2831A7B498600A084BD /* FlickrCarouselModel.m */,
 				0D77A2851A7B498600A084BD /* Main.storyboard */,
 				0D77A2881A7B498600A084BD /* Images.xcassets */,
 				0D77A28A1A7B498600A084BD /* LaunchScreen.xib */,
 				0D77A2751A7B498600A084BD /* Supporting Files */,
+				0D7083F91A7B6016007ECC82 /* FlickrService.h */,
+				0D7083FA1A7B6016007ECC82 /* FlickrService.m */,
 			);
 			path = FlickrCarouselDemo;
 			sourceTree = "<group>";
@@ -112,21 +101,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0D77A2941A7B498600A084BD /* FlickrCarouselDemoTests */ = {
+		9E99439C4FA2AB1CAC731E82 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0D77A2971A7B498600A084BD /* FlickrCarouselDemoTests.m */,
-				0D77A2951A7B498600A084BD /* Supporting Files */,
+				8E2FDA34A554D4F679FD95E2 /* Pods.debug.xcconfig */,
+				87592E39672AE43C934737AC /* Pods.release.xcconfig */,
 			);
-			path = FlickrCarouselDemoTests;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		0D77A2951A7B498600A084BD /* Supporting Files */ = {
+		F6E90264908B9BE0034D0DD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0D77A2961A7B498600A084BD /* Info.plist */,
+				6B6F37DD4CFCC6EE46A714BA /* libPods.a */,
 			);
-			name = "Supporting Files";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,9 +125,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D77A29B1A7B498600A084BD /* Build configuration list for PBXNativeTarget "FlickrCarouselDemo" */;
 			buildPhases = (
+				0ACC2E7292747CE956DC0659 /* Check Pods Manifest.lock */,
 				0D77A26E1A7B498600A084BD /* Sources */,
 				0D77A26F1A7B498600A084BD /* Frameworks */,
 				0D77A2701A7B498600A084BD /* Resources */,
+				B78AB66723B405B56E14589B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -148,24 +139,6 @@
 			productName = FlickrCarouselDemo;
 			productReference = 0D77A2721A7B498600A084BD /* FlickrCarouselDemo.app */;
 			productType = "com.apple.product-type.application";
-		};
-		0D77A2901A7B498600A084BD /* FlickrCarouselDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0D77A29E1A7B498600A084BD /* Build configuration list for PBXNativeTarget "FlickrCarouselDemoTests" */;
-			buildPhases = (
-				0D77A28D1A7B498600A084BD /* Sources */,
-				0D77A28E1A7B498600A084BD /* Frameworks */,
-				0D77A28F1A7B498600A084BD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0D77A2931A7B498600A084BD /* PBXTargetDependency */,
-			);
-			name = FlickrCarouselDemoTests;
-			productName = FlickrCarouselDemoTests;
-			productReference = 0D77A2911A7B498600A084BD /* FlickrCarouselDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -178,10 +151,6 @@
 				TargetAttributes = {
 					0D77A2711A7B498600A084BD = {
 						CreatedOnToolsVersion = 6.1.1;
-					};
-					0D77A2901A7B498600A084BD = {
-						CreatedOnToolsVersion = 6.1.1;
-						TestTargetID = 0D77A2711A7B498600A084BD;
 					};
 				};
 			};
@@ -199,7 +168,6 @@
 			projectRoot = "";
 			targets = (
 				0D77A2711A7B498600A084BD /* FlickrCarouselDemo */,
-				0D77A2901A7B498600A084BD /* FlickrCarouselDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -215,45 +183,56 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0D77A28F1A7B498600A084BD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0ACC2E7292747CE956DC0659 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
-/* End PBXResourcesBuildPhase section */
+		B78AB66723B405B56E14589B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0D77A26E1A7B498600A084BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D77A2811A7B498600A084BD /* DataViewController.m in Sources */,
+				0D77A2811A7B498600A084BD /* CarouselImageViewController.m in Sources */,
 				0D77A27B1A7B498600A084BD /* AppDelegate.m in Sources */,
-				0D77A2841A7B498600A084BD /* ModelController.m in Sources */,
+				0D77A2841A7B498600A084BD /* FlickrCarouselModel.m in Sources */,
 				0D77A2781A7B498600A084BD /* main.m in Sources */,
-				0D77A27E1A7B498600A084BD /* RootViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0D77A28D1A7B498600A084BD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0D77A2981A7B498600A084BD /* FlickrCarouselDemoTests.m in Sources */,
+				0D7083FB1A7B6016007ECC82 /* FlickrService.m in Sources */,
+				0D77A27E1A7B498600A084BD /* FlickrCarouselViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0D77A2931A7B498600A084BD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0D77A2711A7B498600A084BD /* FlickrCarouselDemo */;
-			targetProxy = 0D77A2921A7B498600A084BD /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		0D77A2851A7B498600A084BD /* Main.storyboard */ = {
@@ -353,55 +332,27 @@
 		};
 		0D77A29C1A7B498600A084BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E2FDA34A554D4F679FD95E2 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FlickrCarouselDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
 		0D77A29D1A7B498600A084BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87592E39672AE43C934737AC /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FlickrCarouselDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		0D77A29F1A7B498600A084BD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = FlickrCarouselDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlickrCarouselDemo.app/FlickrCarouselDemo";
-			};
-			name = Debug;
-		};
-		0D77A2A01A7B498600A084BD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = FlickrCarouselDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlickrCarouselDemo.app/FlickrCarouselDemo";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
@@ -424,14 +375,7 @@
 				0D77A29D1A7B498600A084BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		0D77A29E1A7B498600A084BD /* Build configuration list for PBXNativeTarget "FlickrCarouselDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0D77A29F1A7B498600A084BD /* Debug */,
-				0D77A2A01A7B498600A084BD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
