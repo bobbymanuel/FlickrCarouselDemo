@@ -17,6 +17,7 @@
 		0D77A2871A7B498600A084BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D77A2851A7B498600A084BD /* Main.storyboard */; };
 		0D77A2891A7B498600A084BD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D77A2881A7B498600A084BD /* Images.xcassets */; };
 		0D77A28C1A7B498600A084BD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D77A28A1A7B498600A084BD /* LaunchScreen.xib */; };
+		32271FCBB022D716D387EFDA /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 322716832C516C0385DB3379 /* README.md */; };
 		A85F1F9E356C1980A7DC5316 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B6F37DD4CFCC6EE46A714BA /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		0D77A2861A7B498600A084BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D77A2881A7B498600A084BD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0D77A28B1A7B498600A084BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		322716832C516C0385DB3379 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = file.md; path = README.md; sourceTree = "<group>"; };
 		6B6F37DD4CFCC6EE46A714BA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		87592E39672AE43C934737AC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8E2FDA34A554D4F679FD95E2 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				0D77A2751A7B498600A084BD /* Supporting Files */,
 				0D7083F91A7B6016007ECC82 /* FlickrService.h */,
 				0D7083FA1A7B6016007ECC82 /* FlickrService.m */,
+				322716832C516C0385DB3379 /* README.md */,
 			);
 			path = FlickrCarouselDemo;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				0D77A2871A7B498600A084BD /* Main.storyboard in Resources */,
 				0D77A28C1A7B498600A084BD /* LaunchScreen.xib in Resources */,
 				0D77A2891A7B498600A084BD /* Images.xcassets in Resources */,
+				32271FCBB022D716D387EFDA /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
